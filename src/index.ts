@@ -13,7 +13,11 @@ import { Buffer } from 'buffer';
 //const randomBytes = require("randombytes");
 //const _wordlists_1 = require("./_wordlists");
 import _wordlists_1 from './_wordlist';
-import { randomBytes } from 'crypto';
+// @ts-ignore
+import _randomBytes from 'randombytes';
+import * as utils from 'util';
+const randomBytes = utils.promisify(_randomBytes);
+
 let DEFAULT_WORDLIST = _wordlists_1.EN;
 const INVALID_MNEMONIC = 'Invalid mnemonic';
 const INVALID_ENTROPY = 'Invalid entropy';
